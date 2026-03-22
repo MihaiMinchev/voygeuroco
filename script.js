@@ -265,14 +265,13 @@ Format using HTML: use <h2> for each day title, <h3> for time-of-day sections, <
 CRITICAL: Keep each day to 2–3 sentences per section. Budget your output carefully so you never run out of space before the final day.`;
 
   try {
-    const RENDER_URL = "https://zuirhbackend.onrender.com";
+   const RENDER_URL = "https://zuirhbackend.onrender.com";
 
-    const response = await fetch(`${RENDER_URL}/api/ai`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-
+const response = await fetch(`${RENDER_URL}/api/ai`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ prompt })
+});
     if (!response.ok) {
       if (response.status === 429) throw new Error('rate_limit');
       throw new Error('api_error');
