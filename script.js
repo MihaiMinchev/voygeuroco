@@ -12,6 +12,136 @@ const attractions = [
   { id: 10, name: "Retro Museum Varna", category: "Hidden Gem", description: "A small museum showcasing retro cars, motorcycles, and 20th-century memorabilia. Off the standard tourist track.", city: "Varna", lat: 43.2163, lng: 27.9048, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Retro_Museum_Varna.jpg/800px-Retro_Museum_Varna.jpg" },
   { id: 11, name: "Sea Casino Varna", category: "Hidden Gem", description: "Historic building in the Sea Garden hosting exhibitions, concerts, and cultural events. Offers a great view of the sea.", city: "Varna", lat: 43.2019, lng: 27.9238, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Varna_Sea_Casino.jpg/800px-Varna_Sea_Casino.jpg" },
   { id: 12, name: "Asparuhov Park & Bridge", category: "Hidden Gem", description: "A scenic park and bridge offering panoramic views and peaceful walking trails, away from the main tourist crowds.", city: "Varna", lat: 43.1852, lng: 27.8841, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Asparuhov_Bridge_Varna.jpg/800px-Asparuhov_Bridge_Varna.jpg" }
+ { 
+    id: 13, 
+    name: "Varna Zoo", 
+    category: "Tourist Place", 
+    description: "Класическият зоопарк на Варна, разположен в северната част на Морската градина.", 
+    city: "Varna", 
+    lat: 43.2147, 
+    lng: 27.9353, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 14, 
+    name: "Talyana Art District", 
+    category: "Hidden Gem", 
+    description: "Старият център на Варна, превърнат в арт квартал с графити и малки галерии.", 
+    city: "Varna", 
+    lat: 43.2015, 
+    lng: 27.9150, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 15, 
+    name: "Small Roman Thermae", 
+    category: "Hidden Gem", 
+    description: "По-малко известните антични терми, разположени близо до пристанището.", 
+    city: "Varna", 
+    lat: 43.2014, 
+    lng: 27.9201, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 16, 
+    name: "St. Nicholas the Miracle-Maker Church", 
+    category: "Hidden Gem", 
+    description: "Красива и уютна църква в центъра, любима на моряците.", 
+    city: "Varna", 
+    lat: 43.2025, 
+    lng: 27.9189, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 17, 
+    name: "Naval Museum Outdoor Exhibits", 
+    category: "Hidden Gem", 
+    description: "Дворът на Военноморския музей с кораби, оръдия и стари машини.", 
+    city: "Varna", 
+    lat: 43.2008, 
+    lng: 27.9221, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 18, 
+    name: "Rockery (Alpinarium) Varna", 
+    category: "Hidden Gem", 
+    description: "Скрита алпийска градина с малки мостчета в сърцето на Морската градина.", 
+    city: "Varna", 
+    lat: 43.2085, 
+    lng: 27.9302, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 19, 
+    name: "Varna State Archives Building", 
+    category: "Hidden Gem", 
+    description: "Една от най-красивите архитектурни сгради, често подминавана от туристите.", 
+    city: "Varna", 
+    lat: 43.2038, 
+    lng: 27.9125, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 20, 
+    name: "Early Christian Basilica Ruins", 
+    category: "Hidden Gem", 
+    description: "Останки от раннохристиянска базилика на ул. 'Хан Крум'.", 
+    city: "Varna", 
+    lat: 43.2018, 
+    lng: 27.9180, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 21, 
+    name: "Dragons Sculpture", 
+    category: "Hidden Gem", 
+    description: "Скулптура на два влюбени дракона, скрита под плувен комплекс 'Приморски'.", 
+    city: "Varna", 
+    lat: 43.2005, 
+    lng: 27.9228, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 22, 
+    name: "Art Gallery Boris Georgiev", 
+    category: "Hidden Gem", 
+    description: "Градската художествена галерия, разположена в бивша готическа сграда.", 
+    city: "Varna", 
+    lat: 43.2068, 
+    lng: 27.9172, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 23, 
+    name: "The Re-Born Tree", 
+    category: "Hidden Gem", 
+    description: "Скулптура от мъртво дърво в Морската градина, символ на новия живот.", 
+    city: "Varna", 
+    lat: 43.2062, 
+    lng: 27.9268, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 24, 
+    name: "Officer's Beach Viewpoint", 
+    category: "Hidden Gem", 
+    description: "Панорамна площадка над Офицерския плаж с гледка към целия залив.", 
+    city: "Varna", 
+    lat: 43.2162, 
+    lng: 27.9405, 
+    image: "https://upload.wikimedia.org" 
+  },
+  { 
+    id: 25, 
+    name: "Eco Park Varna", 
+    category: "Hidden Gem", 
+    description: "Университетска ботаническа градина - огромен парк за бягство от шума.", 
+    city: "Varna", 
+    lat: 43.2325, 
+    lng: 28.0018, 
+    image: "https://upload.wikimedia.org" 
+  }
 ];
 /* ── STATE ── */
 let dirFilter = 'all';
