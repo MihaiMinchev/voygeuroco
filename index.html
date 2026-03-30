@@ -300,8 +300,9 @@
               oninput="updateDays(this.value)">
           </div>
           <div class="days-ticks">
-            <span class="days-tick active" onclick="setDays(1)">1 day</span>
-            <span class="days-tick" onclick="setDays(2)">2 days</span>
+            <span class="days-tick" onclick="setDays(1)">1 day</span>
+            <!-- ✅ active е на 2, защото value="2" -->
+            <span class="days-tick active" onclick="setDays(2)">2 days</span>
             <span class="days-tick" onclick="setDays(3)">3 days</span>
             <span class="days-tick" onclick="setDays(4)">4 days</span>
             <span class="days-tick" onclick="setDays(5)">5 days</span>
@@ -338,37 +339,33 @@
           </div>
         </div>
 
-        <!-- INTERESTS -->
-        <div class="plan-field">
-          <label class="plan-label">What would you like to do?</label>
-          <div class="interests-grid">
-            <div class="interest-option selected" id="int-history" onclick="toggleInterest('history')">
-              <span class="interest-emoji">🏛️</span>
-              <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-              <span class="interest-label">Historical Sites</span>
-            </div>
-            <div class="interest-option selected" id="int-food" onclick="toggleInterest('food')">
-              <span class="interest-emoji">🍽️</span>
-              <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-              <span class="interest-label">Local Food & Markets</span>
-            </div>
-            <div class="interest-option" id="int-culture" onclick="toggleInterest('culture')">
-              <span class="interest-emoji">🎭</span>
-              <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-              <span class="interest-label">Cultural Events</span>
-            </div>
-            <div class="interest-option" id="int-romantic" onclick="toggleInterest('romantic')">
-              <span class="interest-emoji">🌹</span>
-              <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-              <span class="interest-label">Romantic Spots</span>
-            </div>
-            <div class="interest-option" id="int-views" onclick="toggleInterest('views')">
-              <span class="interest-emoji">🌅</span>
-              <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
-              <span class="interest-label">Scenic Views</span>
-            </div>
-          </div>
-        </div>
+       <div class="interests-grid">
+  <div class="interest-option selected" id="int-history" onclick="toggleInterest('history')">
+    <span class="interest-emoji">🏛️</span>
+    <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+    <span class="interest-label">Historical Spots</span>
+  </div>
+  <div class="interest-option" id="int-romantic" onclick="toggleInterest('romantic')">
+    <span class="interest-emoji">🌹</span>
+    <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+    <span class="interest-label">Romantic Places</span>
+  </div>
+  <div class="interest-option" id="int-scenic" onclick="toggleInterest('scenic')">
+    <span class="interest-emoji">🌅</span>
+    <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+    <span class="interest-label">Scenic Places</span>
+  </div>
+  <div class="interest-option" id="int-food" onclick="toggleInterest('food')">
+    <span class="interest-emoji">🍽️</span>
+    <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+    <span class="interest-label">Local Food & Drinks</span>
+  </div>
+  <div class="interest-option" id="int-hidden" onclick="toggleInterest('hidden')">
+    <span class="interest-emoji">💎</span>
+    <div class="interest-check"><svg viewBox="0 0 12 12"><polyline points="1,6 4,9 11,2"/></svg></div>
+    <span class="interest-label">Hidden Gems</span>
+  </div>
+</div>
 
         <button class="plan-generate-btn" id="plan-btn" onclick="generatePlan()">
           <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
@@ -393,7 +390,8 @@
         </div>
         <span class="plan-result-badge">AI Generated</span>
       </div>
-      <div class="plan-result-body" id="plan-result-body"></div>
+      <!-- ✅ id поправен от plan-result-body на plan-results, за да съвпада с JS -->
+      <div class="plan-result-body" id="plan-results"></div>
     </div>
 
   </div>
