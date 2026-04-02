@@ -229,8 +229,60 @@ function hideError() {
   document.getElementById('plan-error').classList.remove('visible');
 }
 
-function generatePlan() {
+async function generatePlan() {
   hideError();
+
+  if (planInterests.size === 0) {
+    showError("Please select at least one interest to generate your plan.");
+    return;
+  }
+
+  // Показваме loading
+  const loading = document.getElementById('plan-loading');
+  const result  = document.getElementById('plan-result');
+  const btn     = document.getElementById('plan-btn');
+  loading.classList.add('visible');
+  result.classList.remove('visible');
+  btn.disabled = true;
+
+  // Строим промпта
+  const interests = [...planInterests].join(', ');
+  const prompt = `You are a travel guide for Varna, Bulgaria.
+Create a detailed ${planDays}-day itinerary for a tourist with these interests: ${interests}.
+Trip pace: ${planDiff} (relaxed = 2-3 places/day, moderate = 4-5 places/day, intensive = 6+ places/day).
+Format the response with clear Day 1, Day 2 headings and bullet points for each place.
+Include the place name, a short description, and why it matches the tourist's interests.
+Write in English.`;
+
+  try {
+    const response = await fetch('https://YOUR-RENDER-URL.onrender.com/api/ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      showError("AI error: " + data.error);
+      return;
+    }
+
+    // Показваме резултата
+    document.getElementById('plan-result-meta').textContent =
+      `${planDays} ${planDays === 1 ? 'day' : 'days'} · ${planDiff} pace · ${[...planInterests].join(', ')}`;
+    document.getElementById('plan-results').innerHTML =
+      data.result.replace(/\n/g, '<br>');
+    result.classList.add('visible');
+
+  } catch (err) {
+    showError("Could not connect to the server. Please try again.");
+    console.error(err);
+  } finally {
+    loading.classList.remove('visible');
+    btn.disabled = false;
+  }
+}
 
   if (planInterests.size === 0) {
     showError("Please select at least one interest to generate your plan.");
