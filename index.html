@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Berlin Travel & Co</title>
+<title>Berlin Travel & Hidden Gems</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 </head>
 <body>
-
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <header class="site-header">
   <div class="logo">Berlin Travel & Co</div>
@@ -23,7 +23,7 @@
 
 <!-- ═══════════════ HERO SECTION ═══════════════ -->
 <section id="home" class="hero">
-  <h1>Discover Berlin's Hidden Gems</h1>
+  <h1>Discover Berlin’s Hidden Gems</h1>
   <p>Your ultimate guide to alternative experiences in Berlin.</p>
   <a href="#explore" class="btn-primary">Explore Now</a>
 </section>
@@ -59,34 +59,31 @@
           <input type="text" id="map-search-input" placeholder="Search…" oninput="filterMapPlaces()">
         </div>
       </div>
-
       <div class="map-filter-row" id="map-filter-row">
-        <div class="map-pill active" data-filter="all"      onclick="setMapFilter('all')">All</div>
-        <div class="map-pill" data-filter="imperial"        onclick="setMapFilter('imperial')">Imperial Legacy</div>
-        <div class="map-pill" data-filter="wall"            onclick="setMapFilter('wall')">Berlin Wall</div>
-        <div class="map-pill" data-filter="hidden"          onclick="setMapFilter('hidden')">Hidden Gems</div>
-        <div class="map-pill" data-filter="museums"         onclick="setMapFilter('museums')">Museums</div>
-        <div class="map-pill" data-filter="leisure"         onclick="setMapFilter('leisure')">Leisure</div>
-        <div class="map-pill" data-filter="third"           onclick="setMapFilter('third')">Third Reich</div>
+        <div class="map-pill active" data-filter="all" onclick="setMapFilter('all')">All</div>
+        <div class="map-pill" data-filter="Imperial Legacy & Grandeur" onclick="setMapFilter('Imperial Legacy & Grandeur')">Imperial Legacy & Grandeur</div>
+        <div class="map-pill" data-filter="Berlin Wall & Cold War Sites" onclick="setMapFilter('Berlin Wall & Cold War Sites')">Berlin Wall & Cold War Sites</div>
+        <div class="map-pill" data-filter="Hidden Gems & Secret Parks" onclick="setMapFilter('Hidden Gems & Secret Parks')">Hidden Gems & Secret Parks</div>
+        <div class="map-pill" data-filter="World-Class Museums" onclick="setMapFilter('World-Class Museums')">World-Class Museums</div>
+        <div class="map-pill" data-filter="Leisure & Classic Berlin" onclick="setMapFilter('Leisure & Classic Berlin')">Leisure & Classic Berlin</div>
+        <div class="map-pill" data-filter="Third Reich & Totalitarian Ruins" onclick="setMapFilter('Third Reich & Totalitarian Ruins')">Third Reich & Totalitarian Ruins</div>
       </div>
 
       <div class="map-places-list" id="map-places-list"></div>
-
       <div class="map-info-bar">
         <div class="map-info-name" id="map-selected-name">Select a location</div>
         <div class="map-info-coords" id="map-selected-coords">—</div>
       </div>
 
       <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot dot-imperial"></div>Imperial Legacy</div>
-        <div class="legend-item"><div class="legend-dot dot-wall"></div>Berlin Wall</div>
-        <div class="legend-item"><div class="legend-dot dot-hidden"></div>Hidden Gems</div>
-        <div class="legend-item"><div class="legend-dot dot-museums"></div>Museums</div>
-        <div class="legend-item"><div class="legend-dot dot-leisure"></div>Leisure</div>
-        <div class="legend-item"><div class="legend-dot dot-third"></div>Third Reich</div>
+        <div class="legend-item"><div class="legend-dot dot-Imperial-Legacy-Grandeur"></div>Imperial Legacy & Grandeur</div>
+        <div class="legend-item"><div class="legend-dot dot-Berlin-Wall-Cold-War-Sites"></div>Berlin Wall & Cold War Sites</div>
+        <div class="legend-item"><div class="legend-dot dot-Hidden-Gems-Secret-Parks"></div>Hidden Gems & Secret Parks</div>
+        <div class="legend-item"><div class="legend-dot dot-World-Class-Museums"></div>World-Class Museums</div>
+        <div class="legend-item"><div class="legend-dot dot-Leisure-Classic-Berlin"></div>Leisure & Classic Berlin</div>
+        <div class="legend-item"><div class="legend-dot dot-Third-Reich-Totalitarian-Ruins"></div>Third Reich & Totalitarian Ruins</div>
       </div>
     </aside>
-
     <div id="map-container">
       <div id="leaflet-map" style="height: 100%; width: 100%;"></div>
     </div>
@@ -100,19 +97,19 @@
     <article class="blog-post">
       <img src="images/blog1.jpg" alt="Blog Post 1">
       <h3>Hidden Cafes in Berlin</h3>
-      <p>Discover Berlin's coziest cafés that tourists often miss.</p>
+      <p>Discover Berlin’s coziest cafés that tourists often miss.</p>
       <a href="#" class="read-more">Read More</a>
     </article>
     <article class="blog-post">
       <img src="images/blog2.jpg" alt="Blog Post 2">
       <h3>Street Art & Murals</h3>
-      <p>A guide to Berlin's most iconic street art and murals.</p>
+      <p>A guide to Berlin’s most iconic street art and murals.</p>
       <a href="#" class="read-more">Read More</a>
     </article>
     <article class="blog-post">
       <img src="images/blog3.jpg" alt="Blog Post 3">
       <h3>Secret Gardens & Parks</h3>
-      <p>Explore Berlin's hidden green spaces for a peaceful stroll.</p>
+      <p>Explore Berlin’s hidden green spaces for a peaceful stroll.</p>
       <a href="#" class="read-more">Read More</a>
     </article>
   </div>
@@ -124,9 +121,41 @@
 </footer>
 
 <!-- ═══════════════ SCRIPTS ═══════════════ -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js"></script>
 <script src="blog.js"></script>
+<script>
+// Initialize Leaflet Map
+const map = L.map('leaflet-map').setView([52.5200, 13.4050], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
 
+const markers = [];
+places.forEach(p => {
+  const marker = L.marker(p.coords).addTo(map).bindPopup(`<b>${p.name}</b>`);
+  marker.category = p.category;
+  markers.push(marker);
+});
+
+function setMapFilter(cat) {
+  markers.forEach(m => {
+    if(cat === 'all' || m.category === cat){
+      m.addTo(map);
+    } else {
+      map.removeLayer(m);
+    }
+  });
+}
+function filterMapPlaces() {
+  const query = document.getElementById('map-search-input').value.toLowerCase();
+  markers.forEach(m => {
+    if(m.getPopup().getContent().toLowerCase().includes(query)){
+      m.addTo(map);
+    } else {
+      map.removeLayer(m);
+    }
+  });
+}
+</script>
 </body>
 </html>
