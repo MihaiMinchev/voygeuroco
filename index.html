@@ -24,7 +24,7 @@
   </div>
   <ul class="nav-links">
     <li><a onclick="navigate('home')" data-page="home">Home</a></li>
-   <li><a onclick="navigate('еxplore')" data-page="Explore">Explore</a></li>
+ <li><a onclick="navigate('explore'); setTimeout(()=>setDirFilter('Explore '),100)">Explore </a></li>
    <!--<li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>-->
     <li><a onclick="navigate('map')" data-page="map">Map</a></li>
    <!-- <a onclick="navigate('create')" data-page="create"
@@ -410,8 +410,8 @@
       <div class="footer-col-title">Navigate</div>
       <ul class="footer-links">
         <li><a onclick="navigate('home')" data-page="home">Home</a></li>
- <!--    <li><a onclick="navigate('Explore')" data-page="Explore">Explore</a></li>
-    <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>-->
+   <li><a onclick="navigate('Explore')" data-page="Explore">Explore</a></li>
+ <!--   <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>-->
   <li><a onclick="navigate('map')" data-page="map">Map</a></li>
     <!--    <li><a onclick="navigate('create')">Create my trip</a></li>
       </ul>
