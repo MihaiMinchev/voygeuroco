@@ -62,28 +62,33 @@ let mapInitialized = false;
 
 /* ── NAVIGATION ── */
 function navigate(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // 1. Скрива абсолютно всички страници физически
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none'; // ДОБАВИ ТОВА
+  });
+
+  // 2. Намира целевата страница
+  const targetPage = document.getElementById('page-' + page);
+  if (targetPage) {
+    targetPage.classList.add('active');
+    targetPage.style.display = 'block'; // ДОБАВИ ТОВА
+  }
+
+  // Останалото ти е ок...
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-
-  document.getElementById('page-' + page).classList.add('active');
-
   const navLink = document.querySelector(`[data-page="${page}"]`);
   if (navLink) navLink.classList.add('active');
 
   window.scrollTo(0, 0);
 
-  if (page === 'explore') renderExplore();
-  if (page === 'map') initMap();
-
+  // Важно: Провери дали тези функции съществуват и не гърмят с грешки!
+  if (page === 'explore') {
+      if (typeof renderExplore === "function") renderExplore();
+  }
+  
   window.location.hash = page;
 }
-
-window.addEventListener('hashchange', () => {
-  const h = window.location.hash.replace('#', '') || 'home';
-  if (['home', 'explore', 'map', 'blog', 'create'].includes(h)) {
-    navigate(h);
-  }
-});
 
 /* ── EXPLORE ── */
 function setDirFilter(f) {
