@@ -103,21 +103,7 @@
       <span class="section-label" style="color: var(--navy);">Featured Places</span>
       <h2 class="section-title section-title-dark">Must-See in Berlin</h2>
       <div class="section-line"></div>
-    </div>
-    <div class="highlights-grid">
-      <div class="highlight-card" onclick="navigate('explore')">
-        <div class="highlight-img">
-          <div class="highlight-img-inner" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Varna_-_Cathedral_%281%29.jpg/800px-Varna_-_Cathedral_%281%29.jpg'); background-size: cover; background-position: center;"></div>
-          <span class="highlight-cat">Tourist Place</span>
-        </div>
-      <div class="highlight-card" onclick="navigate('directory')">
-        <div class="highlight-img">
-          <div class="highlight-img-inner" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Varna_sea_garden.jpg/1280px-Varna_sea_garden.jpg'); background-size: cover; background-position: center;"></div>
-          <span class="highlight-cat">Tourist Place</span>
-        </div>
-       <section class="highlights">
-    <div class="highlight-grid" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px;">
-      
+    </div>  
       <!-- Highlight 1: The Reichstag (Power) -->
       <div class="highlight-card" onclick="navigate('directory')" style="flex: 1; min-width: 300px; max-width: 400px; cursor: pointer; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         <div class="highlight-img" style="position: relative; height: 250px;">
@@ -193,7 +179,7 @@
   <div class="dir-controls">
     <div class="dir-search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <input type="text" id="dir-search-input" placeholder="Search places…" oninput="renderDirectory()">
+      <input type="text" id="dir-search-input" placeholder="Search places…" oninput="renderExplore()">
     </div>
     <div class="filter-pills">
      
