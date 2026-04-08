@@ -24,12 +24,12 @@
     <span class="nav-brand-text">Voyageur<span>Co</span></span>
   </div>
 <ul class="nav-links">
-  <li><a onclick="navigate('home')" data-page="home">Home</a></li>
-  <li><a onclick="navigate('explore')" data-page="explore">Explore</a></li>
-  <li><a onclick="navigate('tours')" data-page="tours">Tours</a></li>
-  <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>
-  <li><a onclick="navigate('map')" data-page="map">Map</a></li>
-  <li>
+  <ul class="nav-links">
+    <li><a onclick="navigate('home')" data-page="home">Home</a></li>
+    <li><a onclick="navigate('еxplore')" data-page="Explore">Explore</a></li>
+    <li><a onclick="navigate('tours')" data-page="Tours">Tours</a></li>
+    <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>
+    <li><a onclick="navigate('map')" data-page="map">Map</a></li>
     <a onclick="navigate('create')" data-page="create"
        style="color: var(--gold); border: 1px solid rgba(201,168,76,0.35); padding: 5px 14px; border-radius: 100px;">
        Create my trip
@@ -197,20 +197,19 @@
 
 </div>
   <!-- ══════════════════════════════════════════════════ TOURS ══ -->
-          
-         <!-- Tours Page -->
+<!-- Tours Page -->
 <div id="page-tours" class="page">
   
   <!-- Strategic Itineraries Section -->
   <section class="strategic-grid" style="padding: 60px 20px; background: #fff; font-family: 'Helvetica', sans-serif;">
-      <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 50px; font-size: 26px; font-weight: 300;">Strategic Itineraries</h2>
+      <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 50px; font-size: 26px; font-weight: 300; color: #1A2F45;">Strategic Itineraries</h2>
       
       <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
           
           <!-- Prussian Grandeur -->
           <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
               <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">Prussian Grandeur</h3>
-              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8; color: #E8C96A;">
+              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
                   <li><strong>Reichstag Dome:</strong> A transparent architectural statement of political evolution.</li>
                   <li><strong>Brandenburg Gate:</strong> The definitive symbol of Prussian triumph and national unity.</li>
                   <li><strong>Museum Island:</strong> A centralized complex housing five world-renowned heritage institutions.</li>
@@ -220,9 +219,9 @@
           </div>
 
           <!-- The Divided City -->
-          <div class="itinerary-card" style="border: 1px solid #E8C96A; background: #E8C96A; color: #1A2F45; padding: 25px; position: relative;">
+          <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
               <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">The Divided City</h3>
-              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8; color: #1A2F45;">
+              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
                   <li><strong>Checkpoint Charlie:</strong> The primary flashpoint between Eastern and Western military sectors.</li>
                   <li><strong>Fuhrer’s Bunker:</strong> The subterranean remains marking the conclusion of the Third Reich.</li>
                   <li><strong>Wilhelmstraße:</strong> The former administrative epicenter of German executive power.</li>
@@ -234,7 +233,7 @@
           <!-- The German Genius -->
           <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
               <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">The German Genius</h3>
-              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8; color: #E8C96A;">
+              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
                   <li><strong>Tech Museum:</strong> A comprehensive analysis of German engineering and aerospace history.</li>
                   <li><strong>Olympiastadion:</strong> A monumental structure radiating discipline and massive architectural scale.</li>
                   <li><strong>Schwerbelastungskörper:</strong> A 12,000-ton concrete test site for urban structural limits.</li>
