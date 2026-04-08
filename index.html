@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voyageur & Co — Discover Berlin</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
 <title>Voyageur & Co — Discover Berlin</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -23,7 +22,6 @@
     </div>
     <span class="nav-brand-text">Voyageur<span>Co</span></span>
   </div>
-<ul class="nav-links">
   <ul class="nav-links">
     <li><a onclick="navigate('home')" data-page="home">Home</a></li>
     <li><a onclick="navigate('еxplore')" data-page="Explore">Explore</a></li>
@@ -40,7 +38,6 @@
 
 <!-- ══════════════════════════════════════════════════ HOME ══ -->
 <div id="page-home" class="page active">
-
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-pattern"></div>
@@ -91,122 +88,47 @@
           <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         </div>
         <h3 class="feature-title">Travel Blog</h3>
-        <p class="feature-text">Insider tips, seasonal guides, and local recommendations written to help you make the most of your visit to Varna.</p>
+        <p class="feature-text">Insider tips, seasonal guides, and local recommendations written to help you make the most of your visit to Berlin.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
         </div>
         <h3 class="feature-title">Local Discovery</h3>
-        <p class="feature-text">From the Prussian grandeur of the Reichstag to the silent remnants of the Berlin Wall — decoding the layers of history and power in Europe’s most iconic hub..</p>
+        <p class="feature-text">From the Prussian grandeur of the Reichstag to the silent remnants of the Berlin Wall — decoding the layers of history and power in Europe’s most iconic hub.</p>
       </div>
     </div>
   </section>
 
-  <section class="home-highlights">
-    <div class="section-header">
-      <span class="section-label" style="color: var(--navy);">Featured Places</span>
-      <h2 class="section-title section-title-dark">Must-See in Berlin</h2>
-      <div class="section-line"></div>
-    </div>  
-      <!-- Highlight 1: The Reichstag (Power) -->
-      <div class="highlight-card" onclick="navigate('directory')" style="flex: 1; min-width: 300px; max-width: 400px; cursor: pointer; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <div class="highlight-img" style="position: relative; height: 250px;">
-          <div class="highlight-img-inner" style="background-image: url('https://wikimedia.org'); background-size: cover; background-position: center; height: 100%;"></div>
-          <span class="highlight-cat" style="position: absolute; top: 15px; left: 15px; background: black; color: white; padding: 5px 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Strategic Legacy</span>
-        </div>
-        <div class="highlight-body" style="padding: 20px;">
-          <h3 class="highlight-name" style="margin: 0 0 10px 0; font-family: 'Playfair Display', serif; font-size: 22px;">The Reichstag</h3>
-          <p class="highlight-desc" style="margin: 0; color: #333; font-size: 14px; line-height: 1.6;">The seat of the German Parliament. An architectural masterpiece of stone and glass, representing the turbulent evolution of European power and democratic resilience.</p>
-        </div>
-      </div>
-
-      <!-- Highlight 2: Checkpoint Charlie (Intelligence) -->
-      <div class="highlight-card" onclick="navigate('directory')" style="flex: 1; min-width: 300px; max-width: 400px; cursor: pointer; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <div class="highlight-img" style="position: relative; height: 250px;">
-          <div class="highlight-img-inner" style="background-image: url('https://wikimedia.org'); background-size: cover; background-position: center; height: 100%;"></div>
-          <span class="highlight-cat" style="position: absolute; top: 15px; left: 15px; background: black; color: white; padding: 5px 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Cold War Frontier</span>
-        </div>
-        <div class="highlight-body" style="padding: 20px;">
-          <h3 class="highlight-name" style="margin: 0 0 10px 0; font-family: 'Playfair Display', serif; font-size: 22px;">Checkpoint Charlie</h3>
-          <p class="highlight-desc" style="margin: 0; color: #333; font-size: 14px; line-height: 1.6;">The most famous crossing point between East and West. A silent witness to the intelligence battles of the Cold War and the ultimate symbol of a divided world.</p>
-        </div>
-      </div>
-
-      <!-- Highlight 3: Brandenburg Gate (Grandeur) -->
-      <div class="highlight-card" onclick="navigate('directory')" style="flex: 1; min-width: 300px; max-width: 400px; cursor: pointer; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <div class="highlight-img" style="position: relative; height: 250px;">
-          <div class="highlight-img-inner" style="background-image: url('https://wikimedia.org'); background-size: cover; background-position: center; height: 100%;"></div>
-          <span class="highlight-cat" style="position: absolute; top: 15px; left: 15px; background: black; color: white; padding: 5px 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Prussian Grandeur</span>
-        </div>
-        <div class="highlight-body" style="padding: 20px;">
-          <h3 class="highlight-name" style="margin: 0 0 10px 0; font-family: 'Playfair Display', serif; font-size: 22px;">Brandenburg Gate</h3>
-          <p class="highlight-desc" style="margin: 0; color: #333; font-size: 14px; line-height: 1.6;">The ultimate icon of Berlin. A neoclassical masterpiece commissioned by King Frederick William II, standing as a testament to Prussian glory and reunification.</p>
-        </div>
-      </div>
-
-    </div>
-</section>
-
-
-  <section class="home-stats">
-    <div class="stats-row">
-      <div>
-        <div class="stat-num">42</div>
-        <div class="stat-label">Curated Places</div>
-      </div>
-      <div>
-        <div class="stat-num">6</div>
-        <div class="stat-label">Categories</div>
-      </div>
-      <div>
-        <div class="stat-num">5</div>
-        <div class="stat-label">Blog Articles</div>
-      </div>
-      <div>
-        <div class="stat-num">1</div>
-        <div class="stat-label">City Explored</div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Highlights & Tours sections already only contain Berlin content -->
 </div>
 
 <!-- ══════════════════════════════════════════════ Еxplore ══ -->
 <div id="page-explore" class="page">
-
   <div class="page-hero">
     <div class="page-hero-label">Browse Locations</div>
     <h1 class="page-hero-title">The Berlin <em>Directory</em></h1>
     <p class="page-hero-sub">Curated places across Berlin — from historic landmarks to neighbourhood gems.</p>
   </div>
-
   <div class="dir-controls">
     <div class="dir-search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <input type="text" id="dir-search-input" placeholder="Search places…" oninput="renderExplore()">
     </div>
-    <div class="filter-pills">
-     
-    </div>
+    <div class="filter-pills"></div>
   </div>
-
   <div class="dir-content">
     <div class="dir-grid" id="dir-grid"></div>
   </div>
-
 </div>
-  <!-- ══════════════════════════════════════════════════ TOURS ══ -->
-<!-- Tours Page -->
+
+<!-- ══════════════════════════════════════════════════ TOURS ══ -->
 <div id="page-tours" class="page">
-  
   <!-- Strategic Itineraries Section -->
   <section class="strategic-grid" style="padding: 60px 20px; background: #fff; font-family: 'Helvetica', sans-serif;">
       <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 50px; font-size: 26px; font-weight: 300; color: #1A2F45;">Strategic Itineraries</h2>
-      
       <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
-          
-          <!-- Prussian Grandeur -->
+          <!-- Berlin itineraries -->
           <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
               <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">Prussian Grandeur</h3>
               <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
@@ -217,34 +139,8 @@
                   <li><strong>Café Einstein:</strong> An authentic venue preserving the classic European coffee house tradition.</li>
               </ul>
           </div>
-
-          <!-- The Divided City -->
-          <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
-              <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">The Divided City</h3>
-              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
-                  <li><strong>Checkpoint Charlie:</strong> The primary flashpoint between Eastern and Western military sectors.</li>
-                  <li><strong>Fuhrer’s Bunker:</strong> The subterranean remains marking the conclusion of the Third Reich.</li>
-                  <li><strong>Wilhelmstraße:</strong> The former administrative epicenter of German executive power.</li>
-                  <li><strong>Ghost Stations:</strong> Preserved underground transit nodes frozen during the Cold War era.</li>
-                  <li><strong>Potsdamer Platz:</strong> The intersection where historical divisions meet modern urban logic.</li>
-              </ul>
-          </div>
-
-          <!-- The German Genius -->
-          <div class="itinerary-card" style="border: 1px solid #1A2F45; background: #1A2F45; color: #E8C96A; padding: 25px; position: relative;">
-              <h3 style="margin-top: 10px; text-transform: uppercase; font-size: 18px;">The German Genius</h3>
-              <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 1.8;">
-                  <li><strong>Tech Museum:</strong> A comprehensive analysis of German engineering and aerospace history.</li>
-                  <li><strong>Olympiastadion:</strong> A monumental structure radiating discipline and massive architectural scale.</li>
-                  <li><strong>Schwerbelastungskörper:</strong> A 12,000-ton concrete test site for urban structural limits.</li>
-                  <li><strong>Glienicker Brücke:</strong> The strategic bridge used for high-stakes intelligence exchanges.</li>
-                  <li><strong>Flakturm Humboldthain:</strong> A massive anti-aircraft fortification surviving World War II.</li>
-              </ul>
-          </div>
-
       </div>
   </section>
-
 </div>
 
 <!-- ══════════════════════════════════════════════════ MAP ══ -->
@@ -261,25 +157,11 @@
       </div>
       <div class="map-filter-row" id="map-filter-row">
         <div class="map-pill active" data-filter="all" onclick="setMapFilter('all')">All</div>
-      <div class= "map-pill active" Imperial Legacy & Grandeur" onclick="setDirFilter(' Imperial Legacy & Grandeur')"> Imperial Legacy & Grandeur</div>
-      <div class= "map-pill active" Berlin Wall & Cold War Sites" onclick="setDirFilter(' Berlin Wall & Cold War Sites')"> Berlin Wall & Cold War Sitess</div>
-      <div class = "map-pill active" Hidden Gems & Secret Parks" onclick="setDirFilter('Hidden Gems & Secret Parks')">Hidden Gems & Secret Parks</div>
-      <div class= "map-pill active" World-Class Museums " onclick="setDirFilter('World-Class Museums ')">World-Class Museums </div>
-       <div class= "map-pill active" Leisure & Classic Berlin " onclick="setDirFilter('Leisure & Classic Berlin')">Leisure & Classic Berlin </div>
-       <div class= "map-pill active" Third Reich & Totalitarian Ruins " onclick="setDirFilter('Third Reich & Totalitarian Ruins')">Third Reich & Totalitarian Ruins </div>
       </div>
       <div class="map-places-list" id="map-places-list"></div>
       <div class="map-info-bar">
         <div class="map-info-name" id="map-selected-name">Select a location</div>
         <div class="map-info-coords" id="map-selected-coords">—</div>
-      </div>
-      <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot dot-Imperial Legacy & Grandeur"></div>Imperial Legacy & Grandeur</div>
-        <div class="legend-item"><div class="legend-dot dot-Berlin Wall & Cold War Sitess"></div>Berlin Wall & Cold War Sitess</div>
-         <div class="legend-item"><div class="legend-dot dot-Hidden Gems & Secret Parks"></div>Hidden Gems & Secret Parks</div>
-         <div class="legend-item"><div class="legend-dot dot-World-Class Museums"></div>World-Class Museums</div>
-         <div class="legend-item"><div class="legend-dot dot-Leisure & Classic Berlin"></div>Leisure & Classic Berlin</div>
-         <div class="legend-item"><div class="legend-dot dot-Third Reich & Totalitarian Ruins"></div>Third Reich & Totalitarian Ruins</div>
       </div>
     </aside>
     <div id="map-container">
@@ -287,47 +169,6 @@
     </div>
   </div>
 </div>
-
-<!-- ════════════════════════════════════════════════ BLOG ══ -->
-<div id="page-blog" class="page">
-
-  <div class="page-hero">
-    <div class="page-hero-label">Travel Stories</div>
-    <h1 class="page-hero-title">The Varna <em>Blog</em></h1>
-    <p class="page-hero-sub">Insider tips, seasonal guides, and stories from the Pearl of the Black Sea.</p>
-  </div>
-
-  <div class="blog-content">
-    <div class="blog-grid" id="blog-grid"></div>
-  </div>
-
-</div>
-
-<!-- ════════════════════════════════════════ BLOG POST ══ -->
-<div id="page-blog-post" class="page">
-  <div class="post-hero" id="post-hero-img">
-    <div class="post-hero-overlay"></div>
-    <div class="post-hero-content">
-      <button class="post-back-btn" onclick="navigate('blog')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Back to Blog
-      </button>
-      <div class="post-tag-label" id="post-tag"></div>
-      <h1 class="post-title" id="post-title"></h1>
-      <div class="post-date" id="post-date"></div>
-    </div>
-  </div>
-  <div class="post-body-wrap">
-    <div class="post-body" id="post-body"></div>
-    <div class="post-footer">
-      <button class="post-back-btn-bottom" onclick="navigate('blog')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Back to all articles
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- ════════════════════════════════════════════Create my trip ══ -->
 <div id="page-plan" class="page">
 
@@ -511,4 +352,4 @@
   <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 </body>
-</html>
+</htm> искам този код да го поправиш 
