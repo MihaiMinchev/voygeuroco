@@ -129,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setDirFilter(defaultFilter); // Използваме същото име на функцията!
 });
   renderExplore();
-}
 function goToPlace(id) {
   navigate('map');
   setTimeout(() => selectPlace(id), 300);
