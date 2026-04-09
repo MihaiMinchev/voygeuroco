@@ -109,9 +109,15 @@ window.addEventListener('DOMContentLoaded', () => {
 function setDirFilter(f) {
   dirFilter = f;
 
-  document.querySelectorAll('#page-explore .pill').forEach(p => {
-    p.classList.toggle('active', p.dataset.filter === f);
-  });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const defaultFilter = 'all'; 
+    filterPlaces(defaultFilter); 
+    document.querySelectorAll('#page-explore .pill').forEach(p => {
+        p.classList.toggle('active', p.dataset.filter === defaultFilter);
+    });
+});
+
 
   renderExplore();
 }
