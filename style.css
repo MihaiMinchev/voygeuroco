@@ -809,11 +809,11 @@
 
   .map-place-info { flex: 1; min-width: 0; }
 
-  .map-place-name {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.85);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+.map-place-name {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #E8AC52;
+}
   }
 
   .map-place-item.selected .map-place-name { color: var(--gold-light); }
