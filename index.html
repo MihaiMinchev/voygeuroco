@@ -27,11 +27,11 @@
  <li><a onclick="navigate('explore'); setTimeout(()=>setDirFilter('Explore '),100)">Explore </a></li>
    <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>
     <li><a onclick="navigate('map')" data-page="map">Map</a></li>
-   <!-- <a onclick="navigate('create')" data-page="create"
+    <a onclick="navigate('create')" data-page="create"
        style="color: var(--gold); border: 1px solid rgba(201,168,76,0.35); padding: 5px 14px; border-radius: 100px;">
        Create my trip
     </a>
-  </li>-->
+  </li>
 </ul>
 </nav>
 
@@ -260,8 +260,8 @@
     </div>
   </div>
 </div>  
-<!-- ════════════════════════════════════════════Create my trip ══ -->
-<!--<div id="page-plan" class="page">
+<!-- ════════════════════════════════════════════Create ══ -->
+<div id="page-plan" class="page">
 
   <div class="page-hero">
     <div class="page-hero-label">Powered by AI</div>
@@ -286,8 +286,8 @@
 
       <div class="plan-form-body">
 
-        <!-- DAYS -->
-      <!--  <div class="plan-field">
+   
+   <div class="plan-field">
           <label class="plan-label">
             Number of days
             <span id="days-display">2 days</span>
@@ -297,9 +297,9 @@
               oninput="updateDays(this.value)">
           </div>
           <div class="days-ticks">
-            <span class="days-tick" onclick="setDays(1)">1 day</span>   -->
-            <!-- ✅ active е на 2, защото value="2" -->
-         <!--   <span class="days-tick active" onclick="setDays(2)">2 days</span>
+            <span class="days-tick" onclick="setDays(1)">1 day</span>   
+   
+   <span class="days-tick active" onclick="setDays(2)">2 days</span>
             <span class="days-tick" onclick="setDays(1)">1 days</span>
             <span class="days-tick" onclick="setDays(3)">3 days</span>
             <span class="days-tick" onclick="setDays(4)">4 days</span>
@@ -307,9 +307,9 @@
             <span class="days-tick" onclick="setDays(6)">6 days</span>
             <span class="days-tick" onclick="setDays(7)">7 days</span>
           </div>
-        </div> -->
-        <!-- DIFFICULTY -->
-       <!--  <div class="plan-field">
+        </div> 
+  
+      <div class="plan-field">
           <label class="plan-label">Trip pace</label>
           <div class="diff-options">
             <div class="diff-option" id="diff-relaxed" onclick="setDiff('relaxed')">
@@ -374,14 +374,14 @@
       </div>
     </div>
 
-    <!-- Loading -->
- <!--   <div class="plan-loading" id="plan-loading">
+
+  <div class="plan-loading" id="plan-loading">
       <div class="plan-loading-spinner"></div>
       <div class="plan-loading-text">Crafting your personal Berlin trip…</div>
-    </div>-->
+    </div>
 
-    <!-- Result -->
- <!--    <div class="plan-result" id="plan-result">
+
+   <div class="plan-result" id="plan-result">
       <div class="plan-result-header">
         <div>
           <div class="plan-result-title">Your Berlin Trip</div>
@@ -393,7 +393,7 @@
     </div>
 
   </div>
-</div> -->
+</div>
 <!-- ══════════════════════════════════════════════ FOOTER ══ -->
 <footer id="site-footer">
   <div class="footer-inner">
@@ -408,9 +408,9 @@
   <li><a onclick="navigate('explore')" data-page="Explore">Explore</a></li>
  <li><a onclick="navigate('blog')" data-page="blog">Blog</a></li>
   <li><a onclick="navigate('map')" data-page="map">Map</a></li>
-    <!--    <li><a onclick="navigate('create')">Create my trip</a></li>
+ <li><a onclick="navigate('create')">Create my trip</a></li>
       </ul>
-    </div>-->
+    </div>
      <div>
      <div class="footer-col-title">Categories</div>
       <ul class="footer-links">
@@ -428,9 +428,9 @@
         <li><a onclick="navigate('map')">Interactive Map</a></li>
         <li><a onclick="navigate('explore')">Explore all landmarks</a></li>
      <li><a onclick="navigate('blog')">Travel Blog</a></li>
-     <!--   <li><a onclick="navigate('create')">Create My Trip</a></li>
+  <li><a onclick="navigate('create')">Create My Trip</a></li>
       </ul>
-    </div> -->
+    </div> 
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Voyageur &amp; Co — Berlin, Germany</span>
@@ -441,7 +441,7 @@
     </div>
 
     <script>
-        // Сглобяваме имейла динамично след зареждане
+      
         window.onload = function() {
             var user = "voygeurco.trips";
             var domain = "gmail.com";
