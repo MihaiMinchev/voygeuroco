@@ -190,6 +190,43 @@ let currentCity = "berlin";
   }
 
   console.log("Switched to:", cityKey);
+        /* ── CITY SWITCHER (HAMBURGER) ── */
+
+const cities = [
+  { name: "Berlin", center: [52.5200, 13.4050], zoom: 13 },
+  { name: "Paris", center: [48.8566, 2.3522], zoom: 13 },
+  { name: "Rome", center: [41.9028, 12.4964], zoom: 13 },
+  { name: "London", center: [51.5074, -0.1278], zoom: 13 },
+  { name: "Barcelona", center: [41.3851, 2.1734], zoom: 13 }
+];
+
+let currentCity = "Berlin";
+
+function toggleCityMenu() {
+  document.getElementById("city-menu").classList.toggle("active");
+}
+
+function switchCity(cityName) {
+  currentCity = cityName;
+
+  const city = cities.find(c => c.name === cityName);
+  if (!city) return;
+
+  // update map
+  if (leafletMap) {
+    leafletMap.setView(city.center, city.zoom);
+  }
+
+  // optionally filter attractions
+  renderExplore();
+
+  document.getElementById("city-menu").classList.remove("active");
+}
+
+/* optional: helper for filtering by city */
+function getActiveCityAttractions() {
+  return attractions.filter(a => a.city === currentCity);
+}
 }
 
 /* ── About us  ── */
