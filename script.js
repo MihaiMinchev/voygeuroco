@@ -6,7 +6,7 @@ const cities = ["Berlin", "Paris", "Rome", "London", "Barcelona"];
 
 let currentCity = "Berlin";
 
-const data = {
+const attractions= {
 
 /* ───────── BERLIN ───────── */
 Berlin: [
@@ -113,6 +113,84 @@ let leafletMap = null;
 let mapMarkers = [];
 let selectedPlaceId = null;
 let mapInitialized = false;
+     
+   /* ── CITIES ── */
+const cities = {
+  berlin: {
+    name: "Berlin",
+    center: [52.5200, 13.4050],
+    zoom: 13,
+    attractions: attractions // твоят текущ масив
+  },
+
+  paris: {
+    name: "Paris",
+    center: [48.8566, 2.3522],
+    zoom: 13,
+    attractions: [] // ще добавиш после
+  },
+
+  rome: {
+    name: "Rome",
+    center: [41.9028, 12.4964],
+    zoom: 13,
+    attractions: []
+  },
+
+  london: {
+    name: "London",
+    center: [51.5074, -0.1278],
+    zoom: 13,
+    attractions: []
+  },
+
+  barcelona: {
+    name: "Barcelona",
+    center: [41.3851, 2.1734],
+    zoom: 13,
+    attractions: []
+  }
+};
+
+let currentCity = "berlin";
+     function switchCity(cityKey) {
+  if (!cities[cityKey]) return;
+
+  currentCity = cityKey;
+
+  // сменяме dataset-а
+  window.activeAttractions = cities[cityKey].attractions;
+
+  // обновяваме explore
+  renderExplore();
+
+  // обновяваме map ако съществува
+  if (leafletMap) {
+    leafletMap.setView(
+      cities[cityKey].center,
+      cities[cityKey].zoom
+    );
+
+    // махаме стари маркери
+    mapMarkers.forEach(m => leafletMap.removeLayer(m.marker));
+    mapMarkers = [];
+
+    // добавяме нови
+    (window.activeAttractions || []).forEach(p => {
+      const marker = L.marker([p.lat, p.lng], {
+        icon: createMarkerIcon(p.category)
+      })
+        .addTo(leafletMap)
+        .bindPopup(`<b>${p.name}</b><br>${p.category}`);
+
+      mapMarkers.push({ id: p.id, marker, place: p });
+    });
+
+    renderMapList(window.activeAttractions);
+  }
+
+  console.log("Switched to:", cityKey);
+}
 
 /* ── About us  ── */
 function navigate(page) {
@@ -207,7 +285,9 @@ function renderExplore() {
   const inputEl = document.getElementById('dir-search-input');
   const q = (inputEl?.value || '').trim().toLowerCase();
 
-  const filtered = attractions.filter(p => {
+  const data = window.activeAttractions || attractions;
+
+const filtered = data.filter(p => {
     const matchCat = dirFilter === 'all' || p.category === dirFilter;
     const matchQ   = !q ||
                      p.name.toLowerCase().includes(q) ||
@@ -295,7 +375,7 @@ function initMap() {
 }
 
 function renderMapList(list) {
-  const data      = list || attractions;
+const data = list || window.activeAttractions || attractions;
   const container = document.getElementById('map-places-list');
   if (!container) return;
 
