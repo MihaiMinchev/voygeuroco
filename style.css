@@ -979,7 +979,7 @@ nav {
 
 #map-container {
   flex: 1;
-  position: relative;
+  height: 100vh;
 }
 
 #leaflet-map {
