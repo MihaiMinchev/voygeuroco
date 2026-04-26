@@ -804,9 +804,24 @@ nav {
 /* ── MAP PAGE ── */
 .map-layout {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 64px);
+  margin-top: 0; /* FIX: махаме двойното отместване */
+}
+
+#map-container {
+  flex: 1;
+  position: relative;
+  height: 100%; /* FIX: важно за Leaflet */
+}
+
+#leaflet-map {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+}
+
+/* safety fix */
+body, html {
+  height: 100%;
 }
 
 .map-sidebar {
