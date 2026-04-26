@@ -172,3 +172,9 @@ function goToPlace(lat, lng) {
   if (!leafletMap) return;
   leafletMap.setView([lat, lng], 16);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof cities !== "undefined") {
+    initCity("berlin");
+  }
+});
