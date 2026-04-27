@@ -1,8 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --serif: 'Playfair Display', serif;
-  --sans: 'Inter', sans-serif;
   --navy: #0d1b2a;
   --navy-mid: #1a2f45;
   --navy-light: #243d57;
@@ -24,18 +22,19 @@
 }
 
 html { scroll-behavior: smooth; }
+
 body {
   font-family: var(--sans);
   background: var(--cream);
   color: var(--text-dark);
   min-height: 100vh;
   overflow-x: hidden;
-}
-h1, h2, h3,
+  h1, h2, h3,
 .page-hero-title,
 .map-sidebar-title,
 .plan-form-title {
   font-family: var(--serif);
+}
 }
 .logo-serif {
   font-family: var(--serif);
