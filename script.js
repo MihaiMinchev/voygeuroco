@@ -287,12 +287,12 @@ Write in English.`;
 }
 
 function navigate(page) {
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.remove('active');
-  });
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
 
   const target = document.getElementById('page-' + page);
-  if (target) {
-    target.classList.add('active');
+  if (target) target.classList.add('active');
+
+  if (page === 'blog') {
+    loadBlog(); // ← ВАЖНО
   }
 }
