@@ -309,3 +309,6 @@ function navigate(page) {
     loadBlog();
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  navigate('home');
+});
