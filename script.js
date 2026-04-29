@@ -188,21 +188,34 @@ function renderExplore(city) {
 ────────────────────────────── */
 
 function initMap(city) {
-  if (leafletMap) {
-    leafletMap.remove();
+  const container = document.getElementById("leaflet-map");
+
+  if (!container) {
+    console.warn("Map container not found");
+    return;
   }
 
-  leafletMap = L.map("leaflet-map").setView(city.center, city.zoom);
+  // 🔥 CLEAN OLD MAP SAFELY
+  if (leafletMap) {
+    leafletMap.remove();
+    leafletMap = null;
+    mapMarkers = [];
+  }
+
+  // 🔥 INIT FRESH MAP
+  leafletMap = L.map(container).setView(city.center, city.zoom);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap"
   }).addTo(leafletMap);
 
-  city.attractions.forEach(p => {
+  mapMarkers = city.attractions.map(p =>
     L.marker([p.lat, p.lng])
       .addTo(leafletMap)
-      .bindPopup(p.name);
-  });
+      .bindPopup(`<b>${p.name}</b><br>${p.category}`)
+  );
+
+  renderMapList(city);
 }
 
 /* ─────────────────────────────
@@ -269,9 +282,26 @@ Return structured itinerary with multiple places per day.
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.city;
-
-  if (page && cities[page]) {
-    currentCity = page;
-    initCity(page);
+  if (!city) {
+    console.error("No city defined in body[data-city]");
+    return;
   }
 });
+ function setCity(cityKey) {
+  const city = cities[cityKey];
+
+  if (!city) {
+    console.error("City not found:", cityKey);
+    return;
+  }
+
+  currentCity = cityKey;
+
+  renderExplore(city);
+
+  // 🔥 IMPORTANT: delay ensures DOM + Leaflet ready
+  setTimeout(() => {
+    initMap(city);
+  }, 0);
+}
+
