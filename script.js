@@ -131,10 +131,6 @@ const cities = {
     { id: 41, name: "Sainte-Anne Street", category: "Food", description: "Famous Japanese street food area.", city: "Paris", lat: 48.8665, lng: 2.3350, image: "https://wikimedia.org" },
     { id: 42, name: "Rue Mouffetard", category: "Historic Streets", description: "One of the oldest streets in Paris.", city: "Paris", lat: 48.8422, lng: 2.3506, image: "https://wikimedia.org" }
   ]
-}
-  rome: generateCity("Rome", 41.9028, 12.4964),
-  london: generateCity("London", 51.5074, -0.1278),
-  barcelona: generateCity("Barcelona", 41.3851, 2.1734)
 };
 
 /* ─────────────────────────────
