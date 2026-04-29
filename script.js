@@ -131,7 +131,6 @@ const cities = {
     { id: 41, name: "Sainte-Anne Street", category: "Food", description: "Famous Japanese street food area.", city: "Paris", lat: 48.8665, lng: 2.3350, image: "https://wikimedia.org" },
     { id: 42, name: "Rue Mouffetard", category: "Historic Streets", description: "One of the oldest streets in Paris.", city: "Paris", lat: 48.8422, lng: 2.3506, image: "https://wikimedia.org" }
   ]
-}
 };
 
 /* ─────────────────────────────
@@ -156,17 +155,22 @@ function generateCity(name, lat, lng) {
    CITY INIT
 ────────────────────────────── */
 
-function initCity(cityKey) {
+function setCity(cityKey) {
   const city = cities[cityKey];
-  if (!city) return;
+
+  if (!city) {
+    console.error("City not found:", cityKey);
+    return;
+  }
+
+  currentCity = cityKey;
 
   renderExplore(city);
 
-  if (document.getElementById("leaflet-map") && typeof L !== "undefined") {
+  requestAnimationFrame(() => {
     initMap(city);
-  }
+  });
 }
-
 /* ─────────────────────────────
    EXPLORE GRID
 ────────────────────────────── */
@@ -281,27 +285,13 @@ Return structured itinerary with multiple places per day.
 ────────────────────────────── */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const page = document.body.dataset.city;
+  const city = document.body.dataset.city;
+
   if (!city) {
     console.error("No city defined in body[data-city]");
     return;
   }
+
+  setCity(city);
 });
- function setCity(cityKey) {
-  const city = cities[cityKey];
-
-  if (!city) {
-    console.error("City not found:", cityKey);
-    return;
-  }
-
-  currentCity = cityKey;
-
-  renderExplore(city);
-
-  // 🔥 IMPORTANT: delay ensures DOM + Leaflet ready
-  setTimeout(() => {
-    initMap(city);
-  }, 0);
-}
 
