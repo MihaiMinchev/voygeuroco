@@ -21,7 +21,7 @@ const cities = {
     center: [52.5200, 13.4050],
     zoom: 13,
     attractions: [
-       // PRUSSIAN & IMPERIAL LANDMARKS
+     // PRUSSIAN & IMPERIAL LANDMARKS
   { id: 1,  name: "Brandenburg Gate",                      category: "Prussian Landmarks",  description: "The definitive symbol of Berlin and Prussian neoclassical architecture.",                          city: "Berlin", lat: 52.5163, lng: 13.3777, image: "https://wikimedia.org" },
   { id: 2,  name: "Reichstag (The Dome)",                  category: "Prussian Landmarks",  description: "The seat of the German Parliament with Foster's iconic glass dome.",                               city: "Berlin", lat: 52.5186, lng: 13.3761, image: "https://wikimedia.org" },
   { id: 3,  name: "Charlottenburg Palace",                 category: "Prussian Landmarks",  description: "The largest royal palace in Berlin, built by the Hohenzollern dynasty.",                          city: "Berlin", lat: 52.5211, lng: 13.2958, image: "https://wikimedia.org" },
@@ -75,7 +75,63 @@ const cities = {
 ]
   },
 
-  paris: generateCity("Paris", 48.8566, 2.3522),
+   paris: {
+  center: [48.8566, 2.3522],
+  zoom: 13,
+  attractions: [
+    // ICONIC LANDMARKS
+    { id: 1, name: "Eiffel Tower", category: "Iconic Landmarks", description: "Iron lattice tower and global symbol of Paris.", city: "Paris", lat: 48.8584, lng: 2.2945, image: "https://wikimedia.org" },
+    { id: 2, name: "Louvre Museum", category: "Iconic Landmarks", description: "World’s largest art museum and home of Mona Lisa.", city: "Paris", lat: 48.8606, lng: 2.3376, image: "https://wikimedia.org" },
+    { id: 3, name: "Arc de Triomphe", category: "Iconic Landmarks", description: "Triumphal arch honoring French military victories.", city: "Paris", lat: 48.8738, lng: 2.2950, image: "https://wikimedia.org" },
+    { id: 4, name: "Champs-Élysées", category: "Iconic Landmarks", description: "Famous avenue connecting Arc de Triomphe and Place de la Concorde.", city: "Paris", lat: 48.8698, lng: 2.3076, image: "https://wikimedia.org" },
+    { id: 5, name: "Notre-Dame Cathedral", category: "Iconic Landmarks", description: "Gothic cathedral on Île de la Cité.", city: "Paris", lat: 48.8529, lng: 2.3500, image: "https://wikimedia.org" },
+    { id: 6, name: "Sainte-Chapelle", category: "Iconic Landmarks", description: "Gothic chapel with stained glass windows.", city: "Paris", lat: 48.8554, lng: 2.3450, image: "https://wikimedia.org" },
+    { id: 7, name: "Sacré-Cœur Basilica", category: "Iconic Landmarks", description: "White basilica on Montmartre hill.", city: "Paris", lat: 48.8867, lng: 2.3431, image: "https://wikimedia.org" },
+    { id: 8, name: "Palace of Versailles", category: "Iconic Landmarks", description: "Former royal palace of Louis XIV.", city: "Paris", lat: 48.8049, lng: 2.1204, image: "https://wikimedia.org" },
+    { id: 9, name: "Place de la Concorde", category: "Iconic Landmarks", description: "Historic square between Champs-Élysées and Tuileries.", city: "Paris", lat: 48.8656, lng: 2.3211, image: "https://wikimedia.org" },
+    { id: 10, name: "Pont Alexandre III", category: "Iconic Landmarks", description: "Decorative bridge over the Seine.", city: "Paris", lat: 48.8637, lng: 2.3131, image: "https://wikimedia.org" },
+
+    // HISTORIC PARIS
+    { id: 11, name: "Latin Quarter", category: "Historic Districts", description: "Historic student and intellectual district.", city: "Paris", lat: 48.8493, lng: 2.3469, image: "https://wikimedia.org" },
+    { id: 12, name: "Île Saint-Louis", category: "Historic Districts", description: "Quiet historic island in the Seine.", city: "Paris", lat: 48.8527, lng: 2.3580, image: "https://wikimedia.org" },
+    { id: 13, name: "Place des Vosges", category: "Historic Districts", description: "Oldest planned square in Paris.", city: "Paris", lat: 48.8556, lng: 2.3659, image: "https://wikimedia.org" },
+    { id: 14, name: "Le Marais", category: "Historic Districts", description: "Historic district with medieval streets.", city: "Paris", lat: 48.8590, lng: 2.3622, image: "https://wikimedia.org" },
+    { id: 15, name: "Panthéon", category: "Historic Districts", description: "Neoclassical mausoleum of French greats.", city: "Paris", lat: 48.8462, lng: 2.3460, image: "https://wikimedia.org" },
+    { id: 16, name: "Conciergerie", category: "Historic Districts", description: "Former royal palace and prison.", city: "Paris", lat: 48.8554, lng: 2.3450, image: "https://wikimedia.org" },
+
+    // MUSEUMS
+    { id: 17, name: "Musée d'Orsay", category: "Museums", description: "Impressionist art in a former train station.", city: "Paris", lat: 48.8600, lng: 2.3266, image: "https://wikimedia.org" },
+    { id: 18, name: "Centre Pompidou", category: "Museums", description: "Modern art museum with exposed structure design.", city: "Paris", lat: 48.8606, lng: 2.3522, image: "https://wikimedia.org" },
+    { id: 19, name: "Musée Rodin", category: "Museums", description: "Sculptures by Auguste Rodin.", city: "Paris", lat: 48.8556, lng: 2.3157, image: "https://wikimedia.org" },
+    { id: 20, name: "Musée de l'Orangerie", category: "Museums", description: "Monet’s Water Lilies collection.", city: "Paris", lat: 48.8638, lng: 2.3226, image: "https://wikimedia.org" },
+    { id: 21, name: "Musée Picasso", category: "Museums", description: "Works of Pablo Picasso.", city: "Paris", lat: 48.8599, lng: 2.3625, image: "https://wikimedia.org" },
+    { id: 22, name: "Musée de Cluny", category: "Museums", description: "Medieval history museum.", city: "Paris", lat: 48.8505, lng: 2.3449, image: "https://wikimedia.org" },
+
+    // PARKS & RELAX
+    { id: 23, name: "Luxembourg Gardens", category: "Parks", description: "Historic gardens in central Paris.", city: "Paris", lat: 48.8462, lng: 2.3372, image: "https://wikimedia.org" },
+    { id: 24, name: "Tuileries Garden", category: "Parks", description: "Park between Louvre and Place de la Concorde.", city: "Paris", lat: 48.8635, lng: 2.3270, image: "https://wikimedia.org" },
+    { id: 25, name: "Parc des Buttes-Chaumont", category: "Parks", description: "Dramatic cliffs and bridges park.", city: "Paris", lat: 48.8809, lng: 2.3810, image: "https://wikimedia.org" },
+    { id: 26, name: "Bois de Boulogne", category: "Parks", description: "Large forest park on Paris west side.", city: "Paris", lat: 48.8638, lng: 2.2522, image: "https://wikimedia.org" },
+    { id: 27, name: "Bois de Vincennes", category: "Parks", description: "Largest park in Paris.", city: "Paris", lat: 48.8282, lng: 2.4335, image: "https://wikimedia.org" },
+    { id: 28, name: "Canal Saint-Martin", category: "Parks", description: "Trendy canal with cafés.", city: "Paris", lat: 48.8708, lng: 2.3654, image: "https://wikimedia.org" },
+
+    // EXTRA CULTURE / NEIGHBORHOODS
+    { id: 29, name: "Montmartre Streets", category: "Neighborhoods", description: "Historic artistic district.", city: "Paris", lat: 48.8867, lng: 2.3431, image: "https://wikimedia.org" },
+    { id: 30, name: "Galeries Lafayette", category: "Shopping", description: "Luxury department store with dome architecture.", city: "Paris", lat: 48.8738, lng: 2.3320, image: "https://wikimedia.org" },
+    { id: 31, name: "Opéra Garnier", category: "Architecture", description: "19th century opera house.", city: "Paris", lat: 48.8719, lng: 2.3316, image: "https://wikimedia.org" },
+    { id: 32, name: "Rue de Rivoli", category: "Streets", description: "Historic shopping street.", city: "Paris", lat: 48.8606, lng: 2.3410, image: "https://wikimedia.org" },
+    { id: 33, name: "Île de la Cité", category: "Historic Districts", description: "Island in the Seine with Notre-Dame.", city: "Paris", lat: 48.8550, lng: 2.3470, image: "https://wikimedia.org" },
+    { id: 34, name: "Shakespeare and Company", category: "Literature", description: "Famous English-language bookstore.", city: "Paris", lat: 48.8526, lng: 2.3470, image: "https://wikimedia.org" },
+    { id: 35, name: "Rue Cler Market", category: "Food Markets", description: "Traditional Paris food street market.", city: "Paris", lat: 48.8580, lng: 2.3040, image: "https://wikimedia.org" },
+    { id: 36, name: "Marché Bastille", category: "Food Markets", description: "Large open-air market.", city: "Paris", lat: 48.8530, lng: 2.3690, image: "https://wikimedia.org" },
+    { id: 37, name: "La Défense", category: "Modern Paris", description: "Business district with skyscrapers.", city: "Paris", lat: 48.8919, lng: 2.2380, image: "https://wikimedia.org" },
+    { id: 38, name: "Petit Palais", category: "Museums", description: "Fine arts museum near Champs-Élysées.", city: "Paris", lat: 48.8660, lng: 2.3130, image: "https://wikimedia.org" },
+    { id: 39, name: "Grand Palais", category: "Architecture", description: "Historic exhibition hall.", city: "Paris", lat: 48.8662, lng: 2.3125, image: "https://wikimedia.org" },
+    { id: 40, name: "Pont Neuf", category: "Bridges", description: "Oldest standing bridge over the Seine.", city: "Paris", lat: 48.8571, lng: 2.3419, image: "https://wikimedia.org" },
+    { id: 41, name: "Sainte-Anne Street", category: "Food", description: "Famous Japanese street food area.", city: "Paris", lat: 48.8665, lng: 2.3350, image: "https://wikimedia.org" },
+    { id: 42, name: "Rue Mouffetard", category: "Historic Streets", description: "One of the oldest streets in Paris.", city: "Paris", lat: 48.8422, lng: 2.3506, image: "https://wikimedia.org" }
+  ]
+}
   rome: generateCity("Rome", 41.9028, 12.4964),
   london: generateCity("London", 51.5074, -0.1278),
   barcelona: generateCity("Barcelona", 41.3851, 2.1734)
@@ -89,7 +145,7 @@ function generateCity(name, lat, lng) {
   return {
     center: [lat, lng],
     zoom: 13,
-    attractions: Array.from({ length: 40 }).map((_, i) => ({
+    attractions: Array.from({ length: 20 }).map((_, i) => ({
       id: i + 1,
       name: `${name} Place ${i + 1}`,
       category: "Landmarks",
@@ -100,17 +156,7 @@ function generateCity(name, lat, lng) {
 }
 
 /* ─────────────────────────────
-   CITY SWITCH
-────────────────────────────── */
-
-function setCity(cityKey) {
-  if (!cities[cityKey]) return;
-  currentCity = cityKey;
-  initCity(cityKey);
-}
-
-/* ─────────────────────────────
-   INIT CITY
+   CITY INIT
 ────────────────────────────── */
 
 function initCity(cityKey) {
@@ -141,14 +187,12 @@ function renderExplore(city) {
 }
 
 /* ─────────────────────────────
-   MAP INIT
+   MAP
 ────────────────────────────── */
 
 function initMap(city) {
   if (leafletMap) {
     leafletMap.remove();
-    leafletMap = null;
-    mapMarkers = [];
   }
 
   leafletMap = L.map("leaflet-map").setView(city.center, city.zoom);
@@ -158,269 +202,79 @@ function initMap(city) {
   }).addTo(leafletMap);
 
   city.attractions.forEach(p => {
-    const marker = L.marker([p.lat, p.lng])
+    L.marker([p.lat, p.lng])
       .addTo(leafletMap)
-      .bindPopup(`<b>${p.name}</b><br>${p.category}`);
-
-    mapMarkers.push(marker);
+      .bindPopup(p.name);
   });
-
-  renderMapList(city);
 }
 
 /* ─────────────────────────────
-   MAP LIST
+   NAVIGATION (FIXED)
 ────────────────────────────── */
 
-function renderMapList(city) {
-  const list = document.getElementById("map-places-list");
-  if (!list) return;
+function navigate(page) {
+  const pages = document.querySelectorAll('.page');
+  const target = document.getElementById('page-' + page);
 
-  list.innerHTML = city.attractions.map(p => `
-    <div class="map-place-item" onclick="goToPlace(${p.lat}, ${p.lng})">
-      <div>${p.name}</div>
-      <small>${p.category}</small>
-    </div>
-  `).join("");
+  if (!target) return;
+
+  pages.forEach(p => p.classList.remove('active'));
+  target.classList.add('active');
+
+  if (page === 'blog' && typeof loadBlog === 'function') {
+    loadBlog();
+  }
 }
 
 /* ─────────────────────────────
-   MAP ACTION
+   AI FORMAT FIX
 ────────────────────────────── */
 
-function goToPlace(lat, lng) {
-  if (!leafletMap) return;
-  leafletMap.setView([lat, lng], 16);
-}
-
-/* ─────────────────────────────
-   PLAN ENGINE (MULTI-CITY AI)
-────────────────────────────── */
 function formatAI(text) {
-  const days = text.split(/Day\s+\d+/g).filter(Boolean);
+  const days = text.split(/Day\s+\d+:/g).filter(Boolean);
 
   return days.map((day, i) => {
-    const places = day.trim().split(/\n(?=\d+\.)/g).filter(Boolean);
+    const places = day.trim().split(/\n\d+\.\s+/).filter(Boolean);
 
     return `
       <div class="ai-day-card">
         <div class="ai-day-title">Day ${i + 1}</div>
         <div class="ai-places">
-          ${places.map(p => `<div class="ai-place">${p.replace(/\n/g, '<br>')}</div>`).join('')}
+          ${places.map(p => `<div class="ai-place">${p}</div>`).join('')}
         </div>
       </div>
     `;
   }).join('');
 }
+
+/* ─────────────────────────────
+   PROMPT ENGINE (MULTI-CITY)
+────────────────────────────── */
+
 function buildPrompt(city) {
   const interests = [...planInterests].join(', ');
 
   return `
-You are a professional travel itinerary engine.
+You are a travel itinerary engine.
 
 CITY: ${city}
 DAYS: ${planDays}
 PACE: ${planDiff}
 INTERESTS: ${interests}
 
-OUTPUT RULES:
-- Output ONLY itinerary
-- Strictly structured by days
-- No intro, no conclusion
-- No storytelling style
-
-DAILY STRUCTURE:
-Depending on pace:
-- relaxed: 2–3 places per day
-- moderate: 4–5 places per day
-- intensive: 6–7 places per day
-
-FORMAT:
-
-Day 1:
-1. Place Name — 2 sentence description + relevance
-2. Place Name — 2 sentence description + relevance
-3. Place Name — 2 sentence description + relevance
-
-Day 2:
-1. Place Name — 2 sentence description + relevance
-2. Place Name — 2 sentence description + relevance
-
-STYLE:
-- Informative travel guide tone
-- Each place MUST have:
-  - what it is
-  - why it's interesting
-- No repetition of places across days
-- No filler text
-
-IMPORTANT:
-Generate EXACTLY ${planDays} days.
-Each day MUST contain multiple places based on pace.
-Optimize for walking distance between places within each day.
+Return structured itinerary with multiple places per day.
 `;
 }
 
-function getCacheKey() {
-  return `${currentCity}-${planDays}-${planDiff}-${[...planInterests].sort().join(',')}`;
-}
-
-function showError(msg) {
-  const el = document.getElementById('plan-error');
-  if (!el) return;
-  el.textContent = msg;
-  el.classList.add('visible');
-}
-
-function hideError() {
-  const el = document.getElementById('plan-error');
-  if (!el) return;
-  el.classList.remove('visible');
-}
-
-async function generatePlan() {
-  hideError();
-
-  if (!planInterests.size) {
-    showError("Please select at least one interest.");
-    return;
-  }
-
-  const loading = document.getElementById('plan-loading');
-  const result  = document.getElementById('plan-result');
-  const btn     = document.getElementById('plan-btn');
-
-  if (loading) loading.classList.add('visible');
-  if (result) result.classList.remove('visible');
-  if (btn) btn.disabled = true;
-
-  const key = getCacheKey();
-
-  if (planCache.has(key)) {
-    document.getElementById('plan-results').innerHTML = planCache.get(key);
-    if (result) result.classList.add('visible');
-
-    if (loading) loading.classList.remove('visible');
-    if (btn) btn.disabled = false;
-    return;
-  }
-
-  const prompt = buildPrompt(currentCity);
-
-  try {
-    const response = await fetch('https://zuirhbackend.onrender.com/api/ai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-
-    const text = await response.text();
-
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      showError("Server returned invalid response");
-      return;
-    }
-
-    if (!response.ok || data.error) {
-      showError(data.error || "AI error");
-      return;
-    }
-
-    const output = document.getElementById('plan-results');
-
-    if (output) {
-      output.innerHTML = formatAI(data.result);
-      planCache.set(key, output.innerHTML);
-    }
-
-    if (result) result.classList.add('visible');
-
-  } catch (err) {
-    showError("Could not connect to server.");
-  } finally {
-    if (loading) loading.classList.remove('visible');
-    if (btn) btn.disabled = false;
-  }
-}
-
 /* ─────────────────────────────
-   PLAN UI HELPERS
-────────────────────────────── */
-
-function updateDays(val) {
-  const slider = document.getElementById('days-slider');
-  const display = document.getElementById('days-display');
-
-  if (!slider || !display) return;
-
-  planDays = parseInt(val);
-
-  const pct = ((val - 1) / 6 * 100).toFixed(1);
-  slider.style.setProperty('--pct', pct + '%');
-
-  display.textContent = val == 1 ? '1 day' : val + ' days';
-
-  document.querySelectorAll('.days-tick').forEach((t, i) => {
-    t.classList.toggle('active', i + 1 == val);
-  });
-}
-
-function setDays(val) {
-  const slider = document.getElementById('days-slider');
-  if (!slider) return;
-  slider.value = val;
-  updateDays(val);
-}
-
-function setDiff(d) {
-  planDiff = d;
-  ['relaxed', 'moderate', 'intensive'].forEach(opt => {
-    const el = document.getElementById('diff-' + opt);
-    if (el) el.classList.toggle('selected', opt === d);
-  });
-}
-
-function toggleInterest(key) {
-  const el = document.getElementById('int-' + key);
-  if (!el) return;
-
-  if (planInterests.has(key)) {
-    planInterests.delete(key);
-    el.classList.remove('selected');
-  } else {
-    planInterests.add(key);
-    el.classList.add('selected');
-  }
-}
-
-/* ─────────────────────────────
-   INIT DEFAULT
+   INIT PAGE CITY (FIXED)
 ────────────────────────────── */
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof cities !== "undefined") {
-    initCity("berlin");
-    initCity("paris");
+  const page = document.body.dataset.city;
+
+  if (page && cities[page]) {
+    currentCity = page;
+    initCity(page);
   }
 });
-
-
-function navigate(page) {
-  const target = document.getElementById('page-' + page);
-
-  if (!target) {
-    console.warn("Page not found:", page);
-    return;
-  }
-
-  target.classList.add('active');
-   if (page === 'blog' && typeof loadBlog === 'function') 
-   { loadBlog(); }
-
-  if (page === 'blog' && typeof loadBlog === 'function') {
-    loadBlog();
-  }
-}
