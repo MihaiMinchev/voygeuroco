@@ -219,7 +219,16 @@ function initMap(city) {
       .bindPopup(`<b>${p.name}</b><br>${p.category}`)
   );
 
-  renderMapList(city);
+ function renderMapList(city) {
+  const list = document.getElementById("map-list");
+  if (!list) return;
+
+  list.innerHTML = city.attractions.map(p => `
+    <div class="map-item">
+      <b>${p.name}</b><br>
+      <small>${p.category}</small>
+    </div>
+  `).join("");
 }
 
 /* ─────────────────────────────
