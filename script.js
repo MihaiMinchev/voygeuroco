@@ -186,7 +186,6 @@ function renderExplore(city) {
     </div>
   `).join("");
 }
-
 /* ─────────────────────────────
    MAP
 ────────────────────────────── */
@@ -218,7 +217,9 @@ function initMap(city) {
       .addTo(leafletMap)
       .bindPopup(`<b>${p.name}</b><br>${p.category}`)
   );
-}
+}/* ─────────────────────────────
+   MAP LIST
+────────────────────────────── */
  function renderMapList(city) {
   const list = document.getElementById("map-list");
   if (!list) return;
