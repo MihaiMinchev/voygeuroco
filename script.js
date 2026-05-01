@@ -4,7 +4,6 @@
 
 let leafletMap = null;
 let mapMarkers = [];
-let currentCity = 'berlin';
 
 let planDays = 2;
 let planDiff = 'moderate';
@@ -155,21 +154,16 @@ function generateCity(name, lat, lng) {
    CITY INIT
 ────────────────────────────── */
 
-function setCity(cityKey) {
-  const city = cities[cityKey];
+function getCityKey() {
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("city");
 
-  if (!city) {
-    console.error("City not found:", cityKey);
-    return;
-  }
+  if (fromUrl && cities[fromUrl]) return fromUrl;
 
-  currentCity = cityKey;
+  const fromBody = document.body.dataset.city;
+  if (fromBody && cities[fromBody]) return fromBody;
 
-  renderExplore(city);
-
-  requestAnimationFrame(() => {
-    initMap(city);
-  });
+  return null;
 }
 
 /* ─────────────────────────────
@@ -300,18 +294,19 @@ Return structured itinerary with multiple places per day.
 ────────────────────────────── */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("leaflet-map");
+  const cityKey = getCityKey();
 
-  // ✅ ONLY RUN ON CITY PAGES
-  if (!container) return;
-
-  const cityKey = container.dataset.city;
-
-  if (!cityKey || !cities[cityKey]) {
-    console.warn("No valid city found for map page");
+  if (!cityKey) {
+    console.warn("No valid city found");
     return;
   }
 
+  // винаги сетваме city → за AI, UI, всичко
   setCity(cityKey);
-});
 
+  // map само ако има контейнер
+  const mapContainer = document.getElementById("leaflet-map");
+  if (!mapContainer) return;
+
+  initMap(cities[cityKey]);
+});
