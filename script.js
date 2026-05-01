@@ -11,6 +11,13 @@ let planInterests = new Set();
 
 const planCache = new Map();
 
+/* FIX: missing global state */
+let currentCity = null;
+let dirFilter = "all";
+let mapSearchQuery = "";
+let selectedPlaceId = null;
+let mapInitialized = false;
+
 /* ─────────────────────────────
    CITY INIT
 ────────────────────────────── */
@@ -149,9 +156,8 @@ const cities = {
    }
 };
 
-
 /* ─────────────────────────────
-   CITY SETTER (FIX - WAS MISSING)
+   CITY SETTER (FIXED)
 ────────────────────────────── */
 
 function setCity(cityKey) {
@@ -162,30 +168,15 @@ function setCity(cityKey) {
     return;
   }
 
+  currentCity = city;
+
   renderExplore(city);
   initMap(city);
+  renderMapSidebar(); // FIX: ensure sidebar always rebuilds
 }
 
 /* ─────────────────────────────
-   CITY GENERATOR
-────────────────────────────── */
-
-function generateCity(name, lat, lng) {
-  return {
-    center: [lat, lng],
-    zoom: 13,
-    attractions: Array.from({ length: 20 }).map((_, i) => ({
-      id: i + 1,
-      name: `${name} Place ${i + 1}`,
-      category: "Landmarks",
-      lat: lat + (Math.random() - 0.5) * 0.05,
-      lng: lng + (Math.random() - 0.5) * 0.05
-    }))
-  };
-}
-
-/* ─────────────────────────────
-   EXPLORE GRID
+   EXPLORE GRID (UNCHANGED)
 ────────────────────────────── */
 
 function renderExplore(city) {
@@ -201,13 +192,11 @@ function renderExplore(city) {
 }
 
 /* ─────────────────────────────
-   MAP
+   MAP INIT
 ────────────────────────────── */
 
 function initMap(city) {
   const container = document.getElementById("leaflet-map");
-
-  // FIX: no map pages or missing container
   if (!container || !city) return;
 
   if (leafletMap) {
@@ -226,25 +215,143 @@ function initMap(city) {
     L.marker([p.lat, p.lng])
       .addTo(leafletMap)
       .bindPopup(`<b>${p.name}</b><br>${p.category}`)
+      .on("click", () => highlightSidebarItem(p.id))
   );
 
-  renderMapList(city);
+  renderMapSidebar(); // FIX
 }
 
 /* ─────────────────────────────
-   MAP LIST
+   MAP SIDEBAR ENGINE (FIXED CORE)
 ────────────────────────────── */
 
-function renderMapList(city) {
-  const list = document.getElementById("map-list");
-  if (!list) return;
+function renderMapSidebar() {
+  if (!currentCity) return;
 
-  list.innerHTML = city.attractions.map(p => `
-    <div class="map-item">
-      <b>${p.name}</b><br>
-      <small>${p.category}</small>
-    </div>
+  renderMapList();
+  updateMapCount();
+  renderCategoryFilters();
+}
+
+function updateMapCount() {
+  const el = document.getElementById("map-count");
+  if (!el) return;
+
+  el.textContent = `${currentCity.attractions.length} places available`;
+}
+
+/* ─────────────────────────────
+   FILTER SYSTEM (UNIVERSAL)
+────────────────────────────── */
+
+function getCategories() {
+  return ["all", ...new Set(currentCity.attractions.map(p => p.category))];
+}
+
+function renderCategoryFilters() {
+  const header = document.querySelector(".map-sidebar-header");
+  if (!header) return;
+
+  let old = document.getElementById("map-filters");
+  if (old) old.remove();
+
+  const div = document.createElement("div");
+  div.id = "map-filters";
+  div.className = "map-filters";
+
+  div.innerHTML = getCategories().map(cat => `
+    <button class="map-filter ${dirFilter === cat ? "active" : ""}"
+            onclick="setMapFilter('${cat}')">
+      ${cat}
+    </button>
   `).join("");
+
+  header.appendChild(div);
+}
+
+function setMapFilter(filter) {
+  dirFilter = filter;
+  renderMapList();
+  renderCategoryFilters();
+}
+
+/* ─────────────────────────────
+   SEARCH
+────────────────────────────── */
+
+function filterMapPlaces() {
+  const input = document.getElementById("map-search-input");
+  mapSearchQuery = (input?.value || "").toLowerCase();
+  renderMapList();
+}
+
+/* ─────────────────────────────
+   MAP LIST (FIXED LOGIC)
+────────────────────────────── */
+
+function renderMapList() {
+  if (!currentCity) return;
+
+  const container = document.getElementById("map-places-list");
+  if (!container) return;
+
+  const data = currentCity.attractions.filter(p => {
+    const matchCat = dirFilter === "all" || p.category === dirFilter;
+
+    const matchSearch =
+      !mapSearchQuery ||
+      p.name.toLowerCase().includes(mapSearchQuery) ||
+      (p.description || "").toLowerCase().includes(mapSearchQuery);
+
+    return matchCat && matchSearch;
+  });
+
+  container.innerHTML = data.map(p => {
+    const safeClass = p.category.toLowerCase().replace(/[^a-z0-9]/g, "-");
+
+    return `
+      <div class="map-place-item ${selectedPlaceId === p.id ? "selected" : ""}"
+           id="map-item-${p.id}"
+           onclick="selectPlace(${p.id})">
+
+        <div class="map-place-dot ${safeClass}"></div>
+
+        <div>
+          <div>${p.name}</div>
+          <div>${p.category}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* ─────────────────────────────
+   SELECT PLACE
+────────────────────────────── */
+
+function selectPlace(id) {
+  const p = currentCity.attractions.find(x => x.id === id);
+  if (!p) return;
+
+  selectedPlaceId = id;
+
+  if (leafletMap) {
+    leafletMap.setView([p.lat, p.lng], 16);
+
+    const m = mapMarkers.find(x => x.id === id);
+    if (m) m.marker.openPopup();
+  }
+
+  highlightSidebarItem(id);
+  renderMapList();
+}
+
+function highlightSidebarItem(id) {
+  document.querySelectorAll(".map-place-item")
+    .forEach(el => el.classList.remove("selected"));
+
+  const el = document.getElementById("map-item-" + id);
+  if (el) el.classList.add("selected");
 }
 
 /* ─────────────────────────────
@@ -266,56 +373,15 @@ function navigate(page) {
 }
 
 /* ─────────────────────────────
-   AI FORMAT FIX
-────────────────────────────── */
-
-function formatAI(text) {
-  const days = text.split(/Day\s+\d+:/g).filter(Boolean);
-
-  return days.map((day, i) => {
-    const places = day.trim().split(/\n\d+\.\s+/).filter(Boolean);
-
-    return `
-      <div class="ai-day-card">
-        <div class="ai-day-title">Day ${i + 1}</div>
-        <div class="ai-places">
-          ${places.map(p => `<div class="ai-place">${p}</div>`).join('')}
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-/* ─────────────────────────────
-   PROMPT ENGINE
-────────────────────────────── */
-
-function buildPrompt(city) {
-  const interests = [...planInterests].join(', ');
-
-  return `
-You are a travel itinerary engine.
-
-CITY: ${city}
-DAYS: ${planDays}
-PACE: ${planDiff}
-INTERESTS: ${interests}
-
-Return structured itinerary with multiple places per day.
-`;
-}
-
-/* ─────────────────────────────
-   INIT (FIXED - NO CRASH)
+   INIT
 ────────────────────────────── */
 
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const cityKey = params.get("city") || "berlin";
 
-  // FIX: never crash whole app
   if (!cities[cityKey]) {
-    console.error("No valid city found in URL, fallback to berlin");
+    console.error("Invalid city, fallback to berlin");
     setCity("berlin");
     return;
   }
