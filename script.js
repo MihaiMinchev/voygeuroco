@@ -179,7 +179,54 @@ const cities = {
   ]
    }
 };
+/* ─────────────────────────────
+   BLOG SYSTEM (MULTI-CITY)
+────────────────────────────── */
 
+const Blog_Data = {
+  berlin: Berlin_Posts,   // вече ги имаш
+  paris: Paris_Posts      // новите които ще добавим
+};
+
+function getCityFromURLSafe() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("city") || "berlin";
+}
+
+function loadBlog() {
+  const city = getCityFromURLSafe();
+
+  const posts = Blog_Data[city] || Blog_Data["berlin"];
+  renderBlog(posts, city);
+}
+
+function renderBlog(posts, city) {
+  const container = document.getElementById("blog-container");
+  if (!container) return;
+
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+
+  container.innerHTML = posts.map(post => `
+    <article class="blog-post">
+      <img src="${post.image}" alt="${post.title}">
+      
+      <div class="blog-content">
+        <div class="blog-meta">
+          <span>${post.tag}</span>
+          <span>${post.date}</span>
+        </div>
+
+        <h2>${post.title.replace(/Berlin/g, cityName)}</h2>
+
+        <p>${post.excerpt.replace(/Berlin/g, cityName)}</p>
+
+        <div class="blog-full">
+          ${post.content.replace(/Berlin/g, cityName)}
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
 /* ─────────────────────────────
    CITY SETTER (FIXED)
 ────────────────────────────── */
