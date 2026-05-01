@@ -922,14 +922,39 @@ body, html {
   color: rgba(255,255,255,0.3);
 }
 
-.map-filter-row {
+/* ── MAP FILTER BUTTONS ── */
+.map-filters {
   display: flex;
-  gap: 0.4rem;
   flex-wrap: wrap;
-  padding: 0.8rem 1.4rem;
-  border-bottom: 1px solid rgba(201,168,76,0.1);
+  gap: 6px;
+  margin-top: 12px;
+  padding: 0 10px 10px 10px;
 }
 
+.map-filter {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.map-filter:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: rgba(201, 168, 76, 0.4);
+  color: #fff;
+}
+
+.map-filter.active {
+  background: #c9a84c;
+  color: #1A2F45;
+  font-weight: 600;
+  border-color: #c9a84c;
+}
 .map-pill {
   font-size: 0.68rem;
   font-weight: 400;
@@ -974,25 +999,44 @@ body, html {
   border-radius: 2px;
 }
 
+/* ── MAP SIDEBAR ITEMS ── */
 .map-place-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0.9rem 1.4rem;
+  gap: 10px;
+  padding: 10px 12px;
   cursor: pointer;
-  transition: background 0.2s;
-  border-left: 2px solid transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: 0.2s ease;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .map-place-item:hover {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
 }
 
+.map-place-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAME */
+.map-place-item div div:first-child {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* CATEGORY */
+.map-place-item div div:last-child {
+  color: rgba(201, 168, 76, 0.9);
+  font-size: 12px;
+}
+
+/* SELECTED STATE */
 .map-place-item.selected {
-  background: rgba(201,168,76,0.08);
-  border-left-color: var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  border-left: 3px solid #c9a84c;
 }
-
 .map-place-dot {
   width: 10px;
   height: 10px;
