@@ -123,7 +123,7 @@ const CITY_BLOGS = {
 
 <p>It is not a city you simply visit. It is a city you experience.</p>`
   },
-]
+],
 
  paris: {
     name: "Paris",
