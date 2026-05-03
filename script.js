@@ -458,4 +458,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setCity(cityKey);
+
+  // ✅ ADD THIS
+  const cityName = CITY_BLOGS?.[cityKey]?.name;
+
+  const mapTitle = document.querySelector(".map-title");
+  if (mapTitle && cityName) {
+    mapTitle.textContent = `${cityName} locations`;
+  }
 });
