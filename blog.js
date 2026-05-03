@@ -259,7 +259,7 @@ function loadBlog() {
 if (!cityBlog) return;
 
 document.querySelector(".page-hero-title").innerHTML =
-  `The ${cityBlog.name} <em>Blog</em>`;
+  <em> The ${cityBlog.name} <em>Blog</em>;
 
 const blogPosts = cityBlog.posts;
   grid.innerHTML = blogPosts.map(p => `
