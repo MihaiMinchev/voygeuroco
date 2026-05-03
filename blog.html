@@ -39,13 +39,14 @@
     <p class="page-hero-sub">Insider tips, seasonal guides, and stories from history of one of most important cities.</p>
   </div>
   <div class="blog-content">
-  </div>
+  <div class="blog-grid" id="blog-grid"></div>
+</div>
 </div>
 
 <!-- BLOG POST -->
-<div id="page-blog-post" class="page active">
+<div id="page-blog-post" class="page">
 <button onclick="window.location.href='blog.html'">Back</button>
-  <div id="post-hero-img" class="post-hero-img"></div>
+  <div id="post-hero-img" class="post-hero"></div>
   <h1 id="post-title"></h1>
   <div id="post-tag"></div>
   <div id="post-date"></div>
@@ -55,10 +56,5 @@
 <!-- SCRIPTS -->
 <script defer src="blog.js"></script>
 <script defer src="script.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  loadBlog();
-});
-</script>
 </body>
 </html>
