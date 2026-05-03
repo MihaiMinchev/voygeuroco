@@ -255,11 +255,13 @@ function loadBlog() {
   const params = new URLSearchParams(window.location.search);
   const cityKey = params.get("city") || "berlin";
 
-  const cityBlog = CITY_BLOGS[cityKey];
-  if (!cityBlog) return;
+ const cityBlog = CITY_BLOGS[cityKey];
+if (!cityBlog) return;
 
-  const blogPosts = cityBlog.posts;
+document.querySelector(".page-hero-title").innerHTML =
+  `The ${cityBlog.name} <em>Blog</em>`;
 
+const blogPosts = cityBlog.posts;
   grid.innerHTML = blogPosts.map(p => `
     <article class="blog-card" onclick="openBlogPost(${p.id})">
       <div class="blog-card-img" style="background-image: url('${p.image}'), linear-gradient(135deg, #1a2f45 0%, #0d1b2a 100%)">
