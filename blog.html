@@ -45,12 +45,16 @@
 
 <!-- BLOG POST -->
 <div id="page-blog-post" class="page">
-<button onclick="window.location.href='blog.html'">Back</button>
+<button class="post-back-btn" onclick="goBackToBlog()">
+  ← Back to Blog
+</button>
   <div id="post-hero-img" class="post-hero"></div>
   <h1 id="post-title"></h1>
   <div id="post-tag"></div>
   <div id="post-date"></div>
-  <div id="post-body"></div>
+ <div class="post-body-wrap">
+  <div id="post-body" class="post-body"></div>
+</div>
 </div>
   
 <!-- SCRIPTS -->
