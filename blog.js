@@ -1,4 +1,4 @@
-const CITY_BLOGS = {
+window.CITY_BLOGS = {
    berlin: {
     name: "Berlin",
     posts: [
@@ -242,7 +242,7 @@ const CITY_BLOGS = {
 <h3>The Real Paris</h3>
 <p>Ultimately, the real Paris is not a checklist of attractions. It is a collection of moments, atmospheres, and experiences that come together naturally.</p>
 
-<p>To explore Paris like a local is to let go of structure and follow the city itself.</p>
+<p>To explore Paris like a local is to let go of structure and follow the city itself.</p>`
      }    // ← затваря последния пост
     ]     // ← затваря posts масива
   }       // ✅ ← добавена тази скоба за paris обекта
@@ -259,8 +259,8 @@ function loadBlog() {
 if (!cityBlog) return;
 
 document.querySelector(".page-hero-title").innerHTML =
-  <em> The ${cityBlog.name} <em>Blog</em>;
-
+  `The ${cityBlog.name} <em>Blog</em>`;
+       
 const blogPosts = cityBlog.posts;
   grid.innerHTML = blogPosts.map(p => `
     <article class="blog-card" onclick="openBlogPost(${p.id})">
